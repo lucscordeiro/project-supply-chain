@@ -1,26 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { fetchProducts } from '../api'; // Ajuste o caminho conforme necessário
 
 const Home = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const loadProducts = async () => {
+            const fetchedProducts = await fetchProducts();
+            setProducts(fetchedProducts); // Atualiza o estado com os produtos
+        };
+        loadProducts();
+    }, []);
+
     return (
         <div>
-            <h2>Welcome to the Supply Chain Management System</h2>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/add-product">Add Product</Link>
-                    </li>
-                    <li>
-                        <Link to="/register-stage">Register Stage</Link>
-                    </li>
-                    <li>
-                        <Link to="/track-product">Track Product</Link>
-                    </li>
-                    <li>
-                        <Link to="/reports-alerts">Reports and Alerts</Link>
-                    </li>
-                </ul>
-            </nav>
+            {products.length > 0 ? (
+                products.map(product => (
+                    <div key={product.id}>{product.name}</div> // Ajuste conforme a estrutura do seu produto
+                ))
+            ) : (
+                <p>No products found</p>
+            )}
         </div>
     );
 };
