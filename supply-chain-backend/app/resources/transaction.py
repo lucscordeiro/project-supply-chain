@@ -1,7 +1,7 @@
 from flask_restful import Resource, reqparse
 from flask import current_app
 from flask import jsonify
-from app.models import Transaction  # Importação necessária
+from app.models import Transaction
 
 parser = reqparse.RequestParser()
 parser.add_argument('product_id', type=str, required=True, help='Product ID is required')

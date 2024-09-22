@@ -1,4 +1,3 @@
-// src/api.js
 const API_URL = 'http://localhost:5000/api';
 
 export const fetchProducts = async () => {
@@ -28,7 +27,6 @@ export const fetchProductDetails = async (productId) => {
   return await response.json();
 };
 
-// src/api/index.js
 export const fetchTransactions = async () => {
     try {
       const response = await fetch('/api/transactions');
@@ -43,8 +41,6 @@ export const fetchTransactions = async () => {
     }
   };
   
-
-// src/api/index.js
 export const fetchBlockchain = async () => {
     try {
       const response = await fetch('/api/blockchain');

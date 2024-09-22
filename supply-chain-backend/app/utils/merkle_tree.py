@@ -29,5 +29,4 @@ class MerkleTree:
         return self.root
 
     def verify_integrity(self, data, proof):
-        # Implementar verificação se necessário
         pass

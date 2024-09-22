@@ -14,7 +14,7 @@ class SupplyChainManager:
         self.graph = Graph()
         self.product_table = HashTable()
         self.merkle_tree = MerkleTree()
-        self.blockchain = Blockchain()  # Instância do blockchain
+        self.blockchain = Blockchain()
 
     def load_data(self):
         """Carregar produtos e transações no contexto da aplicação."""
